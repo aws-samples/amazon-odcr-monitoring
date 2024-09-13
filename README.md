@@ -21,11 +21,11 @@ Let's assume you have multiple Capacity Reservations in a region in an AWS accou
  
 #**usage with required parameters**:
 
-#python3 by_all_capacity_reservations.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>"
+#python3 by_all_capacity_reservations.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>"
  
 #**usage with required and optional parameters**:
 
-#python3 by_all_capacity_reservations.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" [--Dimension "DIMENSION". Default is 'AllCapacityReservations'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_all_capacity_reservations.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" [--Dimension "DIMENSION". Default is 'AllCapacityReservations'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
 <ins>**Instance Type** dimension</ins>:
 
@@ -35,11 +35,11 @@ Once you understand the total capacity utilization from the previous alarms, if 
  
 #**usage with required parameters**:
 
-#python3 by_instanceType.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --InstanceType " <InstanceType>"
+#python3 by_instanceType.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --InstanceType " <InstanceType>"
  
 #**usage with required and optional parameters**:
 
-#python3 by_instanceType.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --InstanceType " <InstanceType>" [--Dimension "DIMENSION". Default is 'InstanceType'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_instanceType.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --InstanceType " <InstanceType>" [--Dimension "DIMENSION". Default is 'InstanceType'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
  
 <ins>**Availability Zone** dimension</ins>:
@@ -48,11 +48,11 @@ Now that you have an in-depth understanding of which instance types are underuti
  
 #**usage with required parameters**:
 
-#python3 by_availabilityZone.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --AvailabilityZone " <AvailabilityZone>"
+#python3 by_availabilityZone.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --AvailabilityZone " <AvailabilityZone>"
  
 #**usage with required and optional parameters**:
 
-#python3 by_availabilityZone.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --AvailabilityZone " <AvailabilityZone>" [--Dimension "DIMENSION". Default is 'AvailabilityZone'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_availabilityZone.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --AvailabilityZone " <AvailabilityZone>" [--Dimension "DIMENSION". Default is 'AvailabilityZone'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
 <ins>**InstancePlatform** dimension</ins>:
 
@@ -60,11 +60,11 @@ Suppose you run instances with multiple platforms and want to be notified of ins
  
 #**usage with required parameters**:
 
-#python3 by_platform.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --InstancePlatform "<InstancePlatform>"
+#python3 by_platform.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --InstancePlatform "<InstancePlatform>"
  
 #**usage with required and optional parameters**:
 
-#python3 by_platform.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --InstancePlatform "<InstancePlatform>" [--Dimension "DIMENSION". Default is 'Platform'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_platform.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --InstancePlatform "<InstancePlatform>" [--Dimension "DIMENSION". Default is 'Platform'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
 #supported platforms are 'Linux/UNIX', 'Red Hat Enterprise Linux',' SUSE Linux', 'Windows', ' Windows with SQL Server Enterprise',' Windows with SQL Server Standard',' Windows with SQL Server Web',' Linux with SQL Server Standard',' Linux with SQL Server Web',' Linux with SQL Server Enterprise',' RHEL with SQL Server Standard',' RHEL with SQL Server Enterprise',' RHEL with SQL Server Web',' RHEL with HA',' RHEL with HA and SQL Server Standard',' RHEL with HA and SQL Server Enterprise',' Ubuntu Pro'
  
@@ -78,7 +78,7 @@ Let's assume you have multiple Capacity Reservations in a region in an AWS accou
  
 #**usage with required and optional parameters**:
 
-#python3 by_instanceMatchCriteria.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" –InstanceMatchCriteria "<InstanceMatchCriteria>" [--Dimension "DIMENSION". Default is 'InstanceMatchCriteria'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_instanceMatchCriteria.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" –InstanceMatchCriteria "<InstanceMatchCriteria>" [--Dimension "DIMENSION". Default is 'InstanceMatchCriteria'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
 #Supported Instance Match Criteria are "open" and "targeted".
  
@@ -89,11 +89,11 @@ Let's assume you have multiple Capacity Reservations in a region in an AWS accou
  
 #**usage with required parameters**:
 
-#python3 by_tenancy.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --Tenancy "<Tenancy>"
+#python3 by_tenancy.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --Tenancy "<Tenancy>"
  
 #**usage with required and optional parameters**:
 
-#python3 by_tenancy.py --RegionName "<AWS Region>" --EmailAdress "<Valid user email address>" --Tenancy "<Tenancy>" [--Dimension "DIMENSION". Default is 'Tenancy'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
+#python3 by_tenancy.py --RegionName "<AWS Region>" --EmailAddress "<Valid user email address>" --Tenancy "<Tenancy>" [--Dimension "DIMENSION". Default is 'Tenancy'] [--MetricName "METRICNAME". Default is 'InstanceUtilization'] [--ComparisonOperator "COMPARISONOPERATOR". Default is 'LessThanOrEqualToThreshold'] [--Threshold "THRESHOLD". Default is 75.0] [--Protocol "PROTOCOL". Default is 'email'] [--TopicName "TOPICNAME". Default is 'ODCRAlarmTopic']
  
 #supported Tenancy are "default" and "dedicated".
 
