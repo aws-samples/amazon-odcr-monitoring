@@ -229,7 +229,7 @@ def main():
     instanceType = args.InstanceType
     logger.info(f"Creating CloudWatch Alarm for the {metricName} metric with {dimension} dimension in the {regionName} region.")
     createCWAlarm(topicName, dimension, metricName, regionName, emailAddress, protocol, comparisonOperator, threshold, instanceType)  
-    logger.info(f"Successfully created Alarm for the {metricName} metric with {dimension} dimension in the {regionName} region.")    
+    logger.info(f"Successfully created CloudWatch Alarm for the {metricName} metric with {dimension} dimension in the {regionName} region.")    
 
 if __name__ == "__main__":
     main()
