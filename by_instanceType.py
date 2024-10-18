@@ -40,7 +40,7 @@ def sns_topic_exists(topic_name,RegionName):
                     return arn
         return None
     except ClientError as e:
-        logger.error(f"An error occurred: {e}")
+        logger.error(f"An error occurred: {e}.")
         return None
 
 #create SNS Alarm for ODCR
@@ -82,14 +82,14 @@ def subscribe_to_sns(topic_arn,protocol, endpoint,RegionName):
         )
         
         # Return the Subscription ARN from the response
-        logger.info(f"Subscribed to SNS topic: {response['SubscriptionArn']}")
+        logger.info(f"Subscribed to the SNS topic: {response['SubscriptionArn']}.")
         return response['SubscriptionArn']
     except EndpointConnectionError as e:
-        logger.error(f"Exiting.....Failed to connect to the endpoint: {e}")
+        logger.error(f"Exiting.....Failed to connect to the endpoint: {e}.")
         # Here you could retry the connection, log the error, or handle it in another appropriate way.
         sys.exit(1)
     except Exception as e:
-        logger.error(f"Error subscribing to SNS topic: {e}")
+        logger.error(f"Error subscribing to SNS topic: {e}.")
         return None
 
 def is_valid_email(email):
@@ -108,7 +108,7 @@ def is_valid_email(email):
     else:
         return False
 
-# creates an alarm for InstanceUtilization CW metric with by_instanceType dimension and if SNS topic not created in a region, it will create one.
+# creates an alarm for InstanceUtilization CW metric with InstanceType dimension and if SNS topic not created in a region, it will create one.
 def createCWAlarm(topic_name,Dimension,MetricName,RegionName,EmailAddress,Protocol,ComparisonOperator,Threshold,InstanceType):
     cw = boto3.client('cloudwatch', region_name=RegionName)
 
@@ -116,12 +116,13 @@ def createCWAlarm(topic_name,Dimension,MetricName,RegionName,EmailAddress,Protoc
     topic_arn = sns_topic_exists(topic_name,RegionName)
 
     if topic_arn:
-        logger.info(f"The SNS topic '{topic_name}' already exists with ARN: {topic_arn}. But confirm SNS Topic {topic_arn} is subscribed if not already exists")
+        logger.info(f"The SNS topic '{topic_name}' already exists with ARN: {topic_arn}.") 
+        logger.info(f"Please ensure you have subscribed to the SNS Topic {topic_arn}.")      
     else:
         logger.info(f"The SNS topic '{topic_name}' does not exist. Creating it now...")
         topic_arn = createODCRAlarmTopic(topic_name,RegionName)
         subscribe_to_sns(topic_arn,Protocol, EmailAddress,RegionName)
-        logger.info(f'Confirm SNS Topic {topic_arn} is subscribed if not already exists')
+        logger.info(f'Please ensure you have subscribed to the SNS Topic {topic_arn}.')
     response = cw.put_metric_alarm(
         AlarmName=f'ODCRAlarm-{MetricName}-{Dimension}-{InstanceType}',
         AlarmActions=[
@@ -226,8 +227,9 @@ def main():
     comparisonOperator = args.ComparisonOperator
     threshold = args.Threshold
     instanceType = args.InstanceType
-    logger.info(f"Creating CloudWatch Alarm for {metricName} with {dimension} dimension in {regionName} region if does not exists")
+    logger.info(f"Creating CloudWatch Alarm for the {metricName} metric with {dimension} dimension in the {regionName} region.")
     createCWAlarm(topicName, dimension, metricName, regionName, emailAddress, protocol, comparisonOperator, threshold, instanceType)  
+    logger.info(f"Successfully created Alarm for the {metricName} metric with {dimension} dimension in the {regionName} region.")    
 
 if __name__ == "__main__":
     main()
